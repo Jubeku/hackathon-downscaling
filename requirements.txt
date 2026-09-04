@@ -1,0 +1,19 @@
+# Minimal dependencies for hackathon notebooks 1 & 2
+# (EERIE data exploration + bilinear-interpolation baseline).
+
+
+# Reading anemoi-format (.zarr) datasets
+anemoi-datasets
+zarr>=2.16
+
+# Scientific stack
+numpy>=1.26
+scipy>=1.11
+xarray>=2024.1
+
+# Plotting (cartopy for geographic projections)
+matplotlib>=3.8
+cartopy>=0.22
+
+# Jupyter kernel to run the notebooks
+ipykernel>=6.29
