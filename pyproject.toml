@@ -1,0 +1,22 @@
+[project]
+name = "hackathon-downscaling"
+version = "0.1.0"
+description = "Environment for the EERIE downscaling hackathon notebooks (data exploration + bilinear baseline)"
+requires-python = ">=3.11"
+dependencies = [
+    "anemoi-datasets",
+    "cartopy>=0.22",
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "xarray>=2024.1",
+    "zarr>=2.16",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29",
+]
+
+[tool.uv]
+package = false

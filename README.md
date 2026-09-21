@@ -1,10 +1,10 @@
-# Hackathon: Downscaling EERIE atmospheric states with the WeatherGenerator
+# Hackathon: Downscaling atmospheric states with the WeatherGenerator
 
 **Challenge.** Use the WeatherGenerator (WG) model to *downscale* EERIE atmospheric
 states from **1°** (O96 reduced Gaussian, ~40k grid points) to **0.25°**
-(**N320** reduced Gaussian, ~542k grid points). We repurpose the WG **latent diffusion** model — which we
+(**N320** reduced Gaussian, ~542k grid points). We repurpose the WG model — which we
 normally use for *time advancement* (predict the next 6-hourly state conditioned on the
-previous one) — to instead generate high-resolution detail conditioned on the
+previous one) — to instead produce high-resolution detail conditioned on the
 low-resolution state.
 
 Before touching the model, participants first get comfortable with the **data** and the
@@ -16,17 +16,17 @@ compared against.
 
 | # | Notebook | What you learn |
 |---|----------|----------------|
-| 1 | [`notebooks/01_intro_ml_and_data.ipynb`](notebooks/01_intro_ml_and_data.ipynb) | ML vocabulary (features/targets, train/val/test, loss, **encoder / latent space / decoder**, autoencoder, diffusion), a tour of the WeatherGenerator, and hands-on exploration of the EERIE data with the **anemoi** library. |
+| 1 | [`notebooks/01_intro_ml_and_data.ipynb`](notebooks/01_intro_ml_and_data.ipynb) | ML vocabulary (features/targets, train/val/test, loss, **encoder / latent space / decoder**, autoencoder), a tour of the WeatherGenerator, and hands-on exploration of the ERA5 data with the **anemoi** library. |
 | 2 | [`notebooks/02_downscaling_baseline_bilinear.ipynb`](notebooks/02_downscaling_baseline_bilinear.ipynb) | What downscaling is, how to load the **N320 (~0.25°)** target grid, and a **bilinear interpolation baseline** from the O96 grid to the N320 points, **scored (RMSE) against a real N320 target**. Data paths are set in one configurable cell so the whole notebook can be repointed at other data with a one-line change. |
 
-A follow-up notebook (later) will show how to drive the WeatherGenerator latent
-diffusion model for the actual learned downscaling.
+A follow-up notebook (later) will show how to drive the WeatherGenerator model for the
+actual learned downscaling.
 
 ## Setup
 
 Notebooks 1 and 2 only need a lightweight scientific-Python stack (no PyTorch, no
 WeatherGenerator). **Installing the full WeatherGenerator — required for the later
-learned latent-diffusion downscaling notebook — comes later.**
+learned downscaling notebook — comes later.**
 
 ### Minimal install (notebooks 1 & 2)
 
@@ -75,5 +75,5 @@ score the baseline against a true target today. All paths are set in one config 
 `DATA_ROOT` defaults to `/e/data1/slmet/ml_training` and can be overridden via the
 `DATA_ROOT` environment variable (path may change completely on a different HPC).
 
-> Notebook 1 still opens the 1° EERIE dataset for the data tour; only the downscaling
+> Notebook 1 opens the 1° (O96) ERA5 dataset for the data tour; the downscaling
 > baseline (notebook 2) uses the ERA5 O96/N320 pair above.
