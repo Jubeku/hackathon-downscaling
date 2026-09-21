@@ -25,12 +25,39 @@ actual learned downscaling.
 ## Setup
 
 Notebooks 1 and 2 only need a lightweight scientific-Python stack (no PyTorch, no
-WeatherGenerator). **Installing the full WeatherGenerator — required for the later
-learned downscaling notebook — comes later.**
+WeatherGenerator). **A ready-to-use environment and Jupyter kernel are already installed on
+Levante, so you normally do not need to build anything.** (Installing the full
+WeatherGenerator — required for the later learned downscaling notebook — comes later.)
 
-### Minimal install (notebooks 1 & 2)
+### Use the pre-built kernel (recommended)
 
-The dependencies are listed in [`requirements.txt`](requirements.txt):
+A shared environment and kernel spec live under `/work/bk1444/hackathon_2026/challenge_3/`:
+
+- environment: `/work/bk1444/hackathon_2026/challenge_3/env`
+- kernel spec: `/work/bk1444/hackathon_2026/challenge_3/kernel/share/jupyter/kernels/hackathon-downscaling`
+
+**On JupyterHub**, register the shared kernel once for your user so it appears in the
+launcher / *Select Kernel* menu. This writes a per-user kernelspec that points at the shared
+environment — it does **not** copy or rebuild it:
+
+```bash
+/work/bk1444/hackathon_2026/challenge_3/env/bin/python -m ipykernel install --user \
+  --name hackathon-downscaling --display-name "Python (hackathon-downscaling)"
+```
+
+Then reload the page and pick **Python (hackathon-downscaling)**.
+
+**In VS Code**, you can instead select the interpreter directly (top-right *Select Kernel* →
+*Select Another Kernel* → *Python Environments*):
+
+```
+/work/bk1444/hackathon_2026/challenge_3/env/bin/python
+```
+
+### Build your own environment (optional)
+
+On another machine, or if you prefer your own copy, install the dependencies from
+[`requirements.txt`](requirements.txt) (or the provided `pyproject.toml` / `uv.lock`):
 
 ```bash
 cd hackathon-downscaling
