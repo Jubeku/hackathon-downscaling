@@ -1,6 +1,6 @@
 # Hackathon: Downscaling atmospheric states with the WeatherGenerator
 
-**Challenge.** Use the WeatherGenerator (WG) model to *downscale* EERIE atmospheric
+**Challenge.** Use the WeatherGenerator (WG) model to *downscale* ERA5 atmospheric
 states from **1°** (O96 reduced Gaussian, ~40k grid points) to **0.25°**
 (**N320** reduced Gaussian, ~542k grid points). We repurpose the WG model — which we
 normally use for *time advancement* (predict the next 6-hourly state conditioned on the
@@ -58,11 +58,7 @@ In VS Code / Jupyter, select the matching interpreter as the notebook kernel (to
 
 ## Data
 
-The EERIE **N320 target values are not on this HPC yet** (to be integrated later), so the
-notebooks use a matched **ERA5 O96 / N320** pair as a stand-in — same 101 variables, same
-6-hourly dates, so we get **real** coarse *and* fine fields at the same timestamps and can
-score the baseline against a true target today. All paths are set in one config cell
-(`DATA_ROOT` + dataset names), so switching to EERIE later is a one-line change.
+All paths are set in one config cell (`DATA_ROOT` + dataset names), so switching later is a one-line change.
 
 - **Coarse source (O96, ~1°):**
   `${DATA_ROOT}/aifs-ea-an-oper-0001-mars-o96-1979-2023-6h-v8.zarr`
@@ -72,7 +68,7 @@ score the baseline against a true target today. All paths are set in one config 
   `${DATA_ROOT}/aifs-ea-an-oper-0001-mars-n320-1979-2023-6h-v8.zarr`
   — same variables/dates, reduced Gaussian grid with 640 latitude rings and 542 080 points.
 
-`DATA_ROOT` defaults to `/e/data1/slmet/ml_training` and can be overridden via the
+`DATA_ROOT` defaults to `/work/bk1444/hackathon_2026/challenge_3/` and can be overridden via the
 `DATA_ROOT` environment variable (path may change completely on a different HPC).
 
 > Notebook 1 opens the 1° (O96) ERA5 dataset for the data tour; the downscaling
