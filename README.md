@@ -97,6 +97,7 @@ Then select the **hackathon-downscaling** kernel in the notebook (top-right
 ## Data
 
 All paths are set in one config cell (`DATA_ROOT` + dataset names), so switching later is a one-line change.
+The two zarr datasets live in the `data/` subdirectory of the shared challenge dir:
 
 - **Coarse source (O96, ~1°):**
   `${DATA_ROOT}/aifs-ea-an-oper-0001-mars-o96-1979-2023-6h-v8.zarr`
@@ -106,8 +107,9 @@ All paths are set in one config cell (`DATA_ROOT` + dataset names), so switching
   `${DATA_ROOT}/aifs-ea-an-oper-0001-mars-n320-1979-2023-6h-v8.zarr`
   — same variables/dates, reduced Gaussian grid with 640 latitude rings and 542 080 points.
 
-`DATA_ROOT` defaults to `~/data_c3` when that link exists (created by the workshop setup),
-otherwise to `/work/bk1444/hackathon_2026/challenge_3/`. Override it via the `DATA_ROOT`
+`DATA_ROOT` resolves automatically to whichever location holds the datasets: the
+`~/data_c3` link created by the workshop setup, otherwise
+`/work/bk1444/hackathon_2026/challenge_3/data`. Override it via the `DATA_ROOT`
 environment variable (the path may change completely on a different HPC).
 
 > Notebook 1 opens the 1° (O96) ERA5 dataset for the data tour; the downscaling
