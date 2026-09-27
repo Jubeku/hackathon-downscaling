@@ -6,9 +6,9 @@ Introductory notebooks for the downscaling hackathon. Work through them in order
 |---|----------|----------------|-------|
 | 1 | [`01_intro_ml_and_data.ipynb`](01_intro_ml_and_data.ipynb) | ML vocabulary (features/targets, train/val/test, loss, **encoder / latent space / decoder**, autoencoder), a tour of the WeatherGenerator architecture, and hands-on exploration of the ERA5 data with the **anemoi** library (open a dataset, inspect metadata, plot fields on the O96 reduced-Gaussian grid, normalize with dataset statistics). | minimal |
 | 2 | [`02_downscaling_baseline_bilinear.ipynb`](02_downscaling_baseline_bilinear.ipynb) | What downscaling is, how to load the **N320 (~0.25°)** target grid, and a **bilinear interpolation baseline** from the O96 grid to the N320 points. Includes a self-supervised *coarsen-then-recover* evaluation so you can put an RMSE number on the baseline. | minimal |
+| 3 | [`03_downscaling_weathergenerator.ipynb`](03_downscaling_weathergenerator.ipynb) | The **learned** downscaling: launch the WeatherGenerator N320 **decoder fine-tuning**, **monitor** it (Slurm status, log, training/validation loss), run a small **inference** (16 samples, `fstep = 0`) to a zarr/zip store, **evaluate** it with the `evaluate` package, and **compare** against the bilinear baseline of notebook 2. | GPU jobs via `sbatch` (the notebook itself runs on CPU) |
 
-A later notebook (3) will drive the WeatherGenerator model for the actual **learned**
-downscaling. It needs `torch` + WeatherGenerator, which the shared environment below already
+Notebook 3 needs `torch` + WeatherGenerator, which the shared environment below already
 provides — so the same one-time setup covers all three notebooks.
 
 ## Setup

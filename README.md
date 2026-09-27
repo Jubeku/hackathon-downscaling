@@ -15,9 +15,7 @@ compared against.
 |---|----------|----------------|
 | 1 | [`notebooks/01_intro_ml_and_data.ipynb`](notebooks/01_intro_ml_and_data.ipynb) | ML vocabulary (features/targets, train/val/test, loss, **encoder / latent space / decoder**, autoencoder), a tour of the WeatherGenerator, and hands-on exploration of the ERA5 data with the **anemoi** library. |
 | 2 | [`notebooks/02_downscaling_baseline_bilinear.ipynb`](notebooks/02_downscaling_baseline_bilinear.ipynb) | What downscaling is, how to load the **N320 (~0.25°)** target grid, and a **bilinear interpolation baseline** from the O96 grid to the N320 points, **scored (RMSE) against a real N320 target**. Data paths are set in one configurable cell so the whole notebook can be repointed at other data with a one-line change. |
-
-A follow-up notebook (later) will show how to drive the WeatherGenerator model for the
-actual learned downscaling. 
+| 3 | [`notebooks/03_downscaling_weathergenerator.ipynb`](notebooks/03_downscaling_weathergenerator.ipynb) | The **learned** downscaling: launch the N320 **decoder fine-tuning** of the WeatherGenerator, **monitor** the job and plot training/validation losses, run a small **inference** (16 samples, `fstep = 0`) that writes a zarr/zip store, **evaluate** it with WeatherGenerator's `evaluate` package, and **compare** it against the bilinear baseline of notebook 2 on the same samples. |
 
 ## Setup
 
